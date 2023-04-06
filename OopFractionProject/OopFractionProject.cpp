@@ -79,7 +79,9 @@ public:
 
     Fraction operator++(int)
     {
-
+        Fraction result = *this;
+        ++*this;
+        return result;
     }
     
 };
