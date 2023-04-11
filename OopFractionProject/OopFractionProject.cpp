@@ -17,7 +17,9 @@ public:
     Fraction() : Fraction(0, 1) {}
 
     void SetNumerator(int numerator) { this->numerator = numerator; }
-    int GetNumerator() { return numerator; }
+    int GetNumerator() const { return numerator; }
+    int& Numerator() { return numerator; }
+
     void SetDenominator(int denominator) 
     {
         if (denominator != 0) this->denominator = denominator;
@@ -66,6 +68,11 @@ public:
 
     friend bool operator==(Fraction f1, Fraction f2);
 
+    bool operator!()
+    {
+        return numerator == 0;
+    }
+
     Fraction operator-()
     {
         return Fraction(-this->numerator, this->denominator);
@@ -83,6 +90,11 @@ public:
         ++*this;
         return result;
     }
+
+
+
+    friend ostream& operator<<(ostream& out, const Fraction& f);
+    friend istream& operator>>(istream& in, Fraction& f);
     
 };
 
@@ -119,7 +131,18 @@ bool operator==(Fraction f1, Fraction f2)
     return f1.numerator * f2.denominator == f2.numerator * f1.denominator;
 }
 
+ostream& operator<<(ostream& out, const Fraction& f)
+{
+    out << "[" << f.numerator << "/" << f.denominator << "]";
+    return out;
+}
 
+istream& operator>>(istream& in, Fraction& f)
+{
+    in >> f.numerator;
+    in >> f.denominator;
+    return in;
+}
 
 
 
@@ -129,10 +152,15 @@ int main()
     Fraction f2(7, 11);
     Fraction f3(3, 8);
 
+    cout << "input fraction: ";
+    cin >> f1;
+    cout << f1 << "\n";
+
+
     /*cout << f1.ToString() << " + " << f2.ToString() << " = ";
     f1.Add(f2);
     cout << f1.ToString() << "\n";*/
-
+    /*
     cout << f1.Plus(f2).Minus(f3).ToString() << "\n";
 
     Fraction f4 = f1 + f2;
@@ -146,4 +174,5 @@ int main()
     cout << f3.ToString() << "\n";
     ++f3;
     cout << f3.ToString() << "\n";
+    */
 }
