@@ -91,7 +91,10 @@ public:
         return result;
     }
 
-
+    operator double() const
+    {
+        return (double)numerator / denominator;
+    }
 
     friend ostream& operator<<(ostream& out, const Fraction& f);
     friend istream& operator>>(istream& in, Fraction& f);
@@ -155,6 +158,8 @@ int main()
     cout << "input fraction: ";
     cin >> f1;
     cout << f1 << "\n";
+
+    cout << (f2 < 0.7) << "\n";
 
 
     /*cout << f1.ToString() << " + " << f2.ToString() << " = ";
