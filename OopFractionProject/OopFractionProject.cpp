@@ -8,13 +8,13 @@ class Fraction
     int numerator;
     int denominator;
 public:
-    Fraction(int numerator, int denominator) 
+    Fraction(int numerator = 0, int denominator = 1) 
         : numerator{ numerator } 
     {
         if (denominator != 0)
             this->denominator = denominator;
     }
-    Fraction() : Fraction(0, 1) {}
+    //Fraction() : Fraction(0, 1) {}
 
     void SetNumerator(int numerator) { this->numerator = numerator; }
     int GetNumerator() const { return numerator; }
@@ -148,6 +148,11 @@ istream& operator>>(istream& in, Fraction& f)
 }
 
 
+void FractionPrint(const Fraction& f)
+{
+    cout << f;
+}
+
 
 int main()
 {
@@ -155,11 +160,13 @@ int main()
     Fraction f2(7, 11);
     Fraction f3(3, 8);
 
-    cout << "input fraction: ";
+    FractionPrint(10);
+
+    /*cout << "input fraction: ";
     cin >> f1;
     cout << f1 << "\n";
 
-    cout << (f2 < 0.7) << "\n";
+    cout << (f2 < 0.7) << "\n";*/
 
 
     /*cout << f1.ToString() << " + " << f2.ToString() << " = ";
