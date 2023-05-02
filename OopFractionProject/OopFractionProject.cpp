@@ -13,6 +13,11 @@ public:
     {
         if (denominator != 0)
             this->denominator = denominator;
+        else
+        {
+            throw 0;
+        }
+            
     }
     //Fraction() : Fraction(0, 1) {}
 
@@ -156,12 +161,26 @@ void FractionPrint(const Fraction& f)
 
 int main()
 {
+    try 
+    {
+        Fraction f0(10, 0);
+        cout << f0;
+    }
+    catch(int e)
+    {
+        cout << "Divide by zero!\n Fraction not create!";
+    }
+    
+    cout << "other code...\n";
+    
+
+    /*
     Fraction f1(4, 5);
     Fraction f2(7, 11);
     Fraction f3(3, 8);
 
     FractionPrint(10);
-
+    */
     /*cout << "input fraction: ";
     cin >> f1;
     cout << f1 << "\n";
