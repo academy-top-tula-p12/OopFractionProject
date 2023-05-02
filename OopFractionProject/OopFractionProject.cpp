@@ -168,7 +168,7 @@ int main()
     }
     catch(int e)
     {
-        cout << "Divide by zero!\n Fraction not create!";
+        cout << "Divide by zero!\nFraction not create!\n";
     }
     
     cout << "other code...\n";
